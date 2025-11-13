@@ -112,44 +112,39 @@ public:
 };
 
 
-// int PushButtonGet(char *pBase){
-//         int i = RegisterRead(pBase, KEY_BASE);
-//         switch (i){
-//                 case 0: return -1;
-//                 case 1: return 0;
-//                 case 2: return 1;
-//                 case 4: return 2;
-//                 case 8: return 3;
-//                 default: return 4;
-//         }
-// }
+int PushButtonGet(DE1 de1){
+        int i = de1.RegisterRead(de1.KEY_BASE);
+        switch (i){
+                case 0: return -1;
+                case 1: return 0;
+                case 2: return 1;
+                case 4: return 2;
+                case 8: return 3;
+                default: return 4;
+        }
+}
 int main()
 {
         DE1 my_de1 = DE1();
         LedControl my_led = LedControl();
-        my_led.WriteAllLeds(my_de1, 1023);
-        // // Initialize
-        // int fd;
-        // char *pBase = Initialize(&fd);
 
-        // int i = ReadAllSwitches(pBase);
-        // int save = -1;
-        // WriteAllLeds(pBase, i);
-        // while (true){
-        //         int newin = PushButtonGet(pBase);
-        //         if (newin != save){
-        //         if (save == 4) {save = newin; continue;}
-        //         save = newin;
-        //         switch (save){
-        //                 case -1: break;
-        //                 case 0: i += 1; break;
-        //                 case 1: i -= 1; break;
-        //                 case 2: i >>= 1; break;
-        //                 case 3: i <<= 1; break;
-        //                 case 4: i = ReadAllSwitches(pBase); break;
-        //                 }
-        //         WriteAllLeds(pBase, i);
-        //         }
-        // }
-
+        int i = my_led.ReadAllSwitches(my_de1);
+        int save = -1;
+        my_led.WriteAllLeds(my_de1, i);
+        while (true){
+                int newin = PushButtonGet(my_de1);
+                if (newin != save){
+                        if (save == 4) {save = newin; continue;}
+                        save = newin;
+                        switch (save){
+                                case -1: break;
+                                case 0: i += 1; break;
+                                case 1: i -= 1; break;
+                                case 2: i >>= 1; break;
+                                case 3: i <<= 1; break;
+                                case 4: i = my_led.ReadAllSwitches(my_de1); break;
+                                }
+                        my_led.WriteAllLeds(my_de1, i);
+                }
+        }
 };
