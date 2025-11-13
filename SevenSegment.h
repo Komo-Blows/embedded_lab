@@ -8,11 +8,11 @@ class SevenSegment: DE1 {
         unsigned int reg0_hexValue;
         unsigned int reg1_hexValue;
     public:
-        SevenSegment(unsigned int regHex, unsigned int regHexVal);
+        SevenSegment(unsigned int regHexVal0, unsigned int regHexVal1);
         ~SevenSegment();
         void Hex_ClearAll();
         void Hex_ClearSpecific(int index);
-        void Hex_WriteSpecific(int displayID, int value);
+        void Hex_WriteSpecific(int display_id, int value);
         void Hex_WriteNumber(int number);
 };
 
