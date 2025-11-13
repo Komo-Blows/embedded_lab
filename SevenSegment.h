@@ -1,9 +1,9 @@
 #ifndef SEVEN_SEGMENT_H
 #define SEVEN_SEGMENT_H
 
-#include "DE1_class.h"
+#include "DE1.h"
 
-class SevenSegment: DE1_Class {
+class SevenSegment: DE1 {
     private:
         unsigned int reg0_hexValue;
         unsigned int reg1_hexValue;
