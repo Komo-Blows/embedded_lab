@@ -1,18 +1,25 @@
 CXX = g++
-CXXFLAGS = -Wall -Wextra -std=c++12
-TARGET = de1_program
+CXXFLAGS = -Wall -Wextra 
+TARGET = lab7_main
 
-all: DE1.o LEDControl.o DE1_class.o
-	$(CXX) $(CXXFLAGS) -o $(TARGET) DE1.o LEDControl.o DE1_class.o
+all: $(TARGET)
 
+# Main executable (using SevenSegment)
+$(TARGET): DE1.o SevenSegment.o main.o
+	$(CXX) $(CXXFLAGS) -o $(TARGET) DE1.o SevenSegment.o main.o
+
+# Object file rules
 DE1.o: DE1.cpp DE1.h
 	$(CXX) $(CXXFLAGS) -c DE1.cpp
 
 LEDControl.o: LEDControl.cpp LEDControl.h DE1.h
 	$(CXX) $(CXXFLAGS) -c LEDControl.cpp
 
-DE1_class.o: DE1_class.cpp DE1.h LEDControl.h
-	$(CXX) $(CXXFLAGS) -c DE1_class.cpp
+SevenSegment.o: SevenSegment.cpp SevenSegment.h DE1.h
+	$(CXX) $(CXXFLAGS) -c SevenSegment.cpp
+
+main.o: main.cpp SevenSegment.h DE1.h
+	$(CXX) $(CXXFLAGS) -c main.cpp
 
 clean:
 	rm -f *.o $(TARGET)

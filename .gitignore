@@ -1,0 +1,6 @@
+*.o
+*.exe
+*.out
+a.out
+lab7/lab6
+lab7/lab7_main

@@ -1,6 +1,26 @@
 #include "SevenSegment.h"
 #include <iostream>
 
+// Segment patterns for characters 0-9, A-F (from lab7table.md)
+const unsigned int SevenSegment::SEGMENT_MAP[16] = {
+    0x3f, // 0
+    0x06, // 1
+    0x5b, // 2
+    0x4f, // 3
+    0x66, // 4
+    0x6d, // 5
+    0x7d, // 6
+    0x07, // 7
+    0x7f, // 8
+    0x6f, // 9
+    0x77, // A
+    0x7c, // b
+    0x39, // C
+    0x5e, // d
+    0x79, // E
+    0x71  // f
+};
+
 SevenSegment::SevenSegment(unsigned int regHexVal0, unsigned int regHexVal1): DE1() {
     reg0_hexValue = regHexVal0;
     reg1_hexValue = regHexVal1;
@@ -47,14 +67,16 @@ void SevenSegment::Hex_WriteSpecific(int display_id, int value) {
     }
 
     if (display_id <= 3) {
-        unsigned int clearMask = 0xFF << (display_id * 8);
-        unsigned int newValue = value << (display_id * 8);
+        unsigned int pattern = SEGMENT_MAP[value];
+        unsigned int clearMask = 0xFFu << (display_id * 8);
+        unsigned int newValue = pattern << (display_id * 8);
         reg0_hexValue = (reg0_hexValue & ~clearMask) | newValue;
         RegisterWrite(HEX3_HEX0_BASE, reg0_hexValue);
     } else {
         int adjusted_id = display_id - 4;
-        unsigned int clearMask = 0xFF << (adjusted_id * 8);
-        unsigned int newValue = value << (adjusted_id * 8);
+        unsigned int pattern = SEGMENT_MAP[value];
+        unsigned int clearMask = 0xFFu << (adjusted_id * 8);
+        unsigned int newValue = pattern << (adjusted_id * 8);
         reg1_hexValue = (reg1_hexValue & ~clearMask) | newValue;
         RegisterWrite(HEX5_HEX4_BASE, reg1_hexValue);
     }
