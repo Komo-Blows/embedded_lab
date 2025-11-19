@@ -15,8 +15,8 @@ class DE1 {
         int fd;       ///< File descriptor for /dev/mem
         
     protected:
-        const unsigned int HEX3_HEX0_BASE = 0x00000020; ///< HEX displays 0-3 register offset
-        const unsigned int HEX5_HEX4_BASE = 0x00000030; ///< HEX displays 4-5 register offset
+        static const unsigned int HEX3_HEX0_BASE = 0x00000020; ///< HEX displays 0-3 register offset
+        static const unsigned int HEX5_HEX4_BASE = 0x00000030; ///< HEX displays 4-5 register offset
         
     public:
         /**
