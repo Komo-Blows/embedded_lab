@@ -1,0 +1,253 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+*/
+(header "symbol" (version "1.2"))
+(symbol
+	(rect 16 16 152 432)
+	(text "rc_servo" (rect 5 0 54 19)(font "Intel Clear" (font_size 8)))
+	(text "inst" (rect 8 395 24 412)(font "Intel Clear" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clk" (rect 0 0 16 19)(font "Intel Clear" (font_size 8)))
+		(text "clk" (rect 21 27 37 46)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "I[0]" (rect 0 0 21 19)(font "Intel Clear" (font_size 8)))
+		(text "I[0]" (rect 21 43 42 62)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "I[1]" (rect 0 0 21 19)(font "Intel Clear" (font_size 8)))
+		(text "I[1]" (rect 21 59 42 78)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "I[2]" (rect 0 0 21 19)(font "Intel Clear" (font_size 8)))
+		(text "I[2]" (rect 21 75 42 94)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 80)(pt 16 80))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "I[3]" (rect 0 0 21 19)(font "Intel Clear" (font_size 8)))
+		(text "I[3]" (rect 21 91 42 110)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 96)(pt 16 96))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "I[4]" (rect 0 0 21 19)(font "Intel Clear" (font_size 8)))
+		(text "I[4]" (rect 21 107 42 126)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 112)(pt 16 112))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "I[5]" (rect 0 0 21 19)(font "Intel Clear" (font_size 8)))
+		(text "I[5]" (rect 21 123 42 142)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 128)(pt 16 128))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "I[6]" (rect 0 0 21 19)(font "Intel Clear" (font_size 8)))
+		(text "I[6]" (rect 21 139 42 158)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 144)(pt 16 144))
+	)
+	(port
+		(pt 0 160)
+		(input)
+		(text "I[7]" (rect 0 0 21 19)(font "Intel Clear" (font_size 8)))
+		(text "I[7]" (rect 21 155 42 174)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 160)(pt 16 160))
+	)
+	(port
+		(pt 136 32)
+		(output)
+		(text "RCPPW" (rect 0 0 44 19)(font "Intel Clear" (font_size 8)))
+		(text "RCPPW" (rect 71 27 115 46)(font "Intel Clear" (font_size 8)))
+		(line (pt 136 32)(pt 120 32))
+	)
+	(port
+		(pt 136 48)
+		(output)
+		(text "RCPPWSC" (rect 0 0 61 19)(font "Intel Clear" (font_size 8)))
+		(text "RCPPWSC" (rect 54 43 115 62)(font "Intel Clear" (font_size 8)))
+		(line (pt 136 48)(pt 120 48))
+	)
+	(port
+		(pt 136 64)
+		(output)
+		(text "HEX0[0]" (rect 0 0 50 19)(font "Intel Clear" (font_size 8)))
+		(text "HEX0[0]" (rect 65 59 115 78)(font "Intel Clear" (font_size 8)))
+		(line (pt 136 64)(pt 120 64))
+	)
+	(port
+		(pt 136 80)
+		(output)
+		(text "HEX0[1]" (rect 0 0 50 19)(font "Intel Clear" (font_size 8)))
+		(text "HEX0[1]" (rect 65 75 115 94)(font "Intel Clear" (font_size 8)))
+		(line (pt 136 80)(pt 120 80))
+	)
+	(port
+		(pt 136 96)
+		(output)
+		(text "HEX0[2]" (rect 0 0 50 19)(font "Intel Clear" (font_size 8)))
+		(text "HEX0[2]" (rect 65 91 115 110)(font "Intel Clear" (font_size 8)))
+		(line (pt 136 96)(pt 120 96))
+	)
+	(port
+		(pt 136 112)
+		(output)
+		(text "HEX0[3]" (rect 0 0 50 19)(font "Intel Clear" (font_size 8)))
+		(text "HEX0[3]" (rect 65 107 115 126)(font "Intel Clear" (font_size 8)))
+		(line (pt 136 112)(pt 120 112))
+	)
+	(port
+		(pt 136 128)
+		(output)
+		(text "HEX0[4]" (rect 0 0 50 19)(font "Intel Clear" (font_size 8)))
+		(text "HEX0[4]" (rect 65 123 115 142)(font "Intel Clear" (font_size 8)))
+		(line (pt 136 128)(pt 120 128))
+	)
+	(port
+		(pt 136 144)
+		(output)
+		(text "HEX0[5]" (rect 0 0 50 19)(font "Intel Clear" (font_size 8)))
+		(text "HEX0[5]" (rect 65 139 115 158)(font "Intel Clear" (font_size 8)))
+		(line (pt 136 144)(pt 120 144))
+	)
+	(port
+		(pt 136 160)
+		(output)
+		(text "HEX0[6]" (rect 0 0 50 19)(font "Intel Clear" (font_size 8)))
+		(text "HEX0[6]" (rect 65 155 115 174)(font "Intel Clear" (font_size 8)))
+		(line (pt 136 160)(pt 120 160))
+	)
+	(port
+		(pt 136 176)
+		(output)
+		(text "HEX2[0]" (rect 0 0 50 19)(font "Intel Clear" (font_size 8)))
+		(text "HEX2[0]" (rect 65 171 115 190)(font "Intel Clear" (font_size 8)))
+		(line (pt 136 176)(pt 120 176))
+	)
+	(port
+		(pt 136 192)
+		(output)
+		(text "HEX2[1]" (rect 0 0 50 19)(font "Intel Clear" (font_size 8)))
+		(text "HEX2[1]" (rect 65 187 115 206)(font "Intel Clear" (font_size 8)))
+		(line (pt 136 192)(pt 120 192))
+	)
+	(port
+		(pt 136 208)
+		(output)
+		(text "HEX2[2]" (rect 0 0 50 19)(font "Intel Clear" (font_size 8)))
+		(text "HEX2[2]" (rect 65 203 115 222)(font "Intel Clear" (font_size 8)))
+		(line (pt 136 208)(pt 120 208))
+	)
+	(port
+		(pt 136 224)
+		(output)
+		(text "HEX2[3]" (rect 0 0 50 19)(font "Intel Clear" (font_size 8)))
+		(text "HEX2[3]" (rect 65 219 115 238)(font "Intel Clear" (font_size 8)))
+		(line (pt 136 224)(pt 120 224))
+	)
+	(port
+		(pt 136 240)
+		(output)
+		(text "HEX2[4]" (rect 0 0 50 19)(font "Intel Clear" (font_size 8)))
+		(text "HEX2[4]" (rect 65 235 115 254)(font "Intel Clear" (font_size 8)))
+		(line (pt 136 240)(pt 120 240))
+	)
+	(port
+		(pt 136 256)
+		(output)
+		(text "HEX2[5]" (rect 0 0 50 19)(font "Intel Clear" (font_size 8)))
+		(text "HEX2[5]" (rect 65 251 115 270)(font "Intel Clear" (font_size 8)))
+		(line (pt 136 256)(pt 120 256))
+	)
+	(port
+		(pt 136 272)
+		(output)
+		(text "HEX2[6]" (rect 0 0 50 19)(font "Intel Clear" (font_size 8)))
+		(text "HEX2[6]" (rect 65 267 115 286)(font "Intel Clear" (font_size 8)))
+		(line (pt 136 272)(pt 120 272))
+	)
+	(port
+		(pt 136 288)
+		(output)
+		(text "HEX1[0]" (rect 0 0 50 19)(font "Intel Clear" (font_size 8)))
+		(text "HEX1[0]" (rect 65 283 115 302)(font "Intel Clear" (font_size 8)))
+		(line (pt 136 288)(pt 120 288))
+	)
+	(port
+		(pt 136 304)
+		(output)
+		(text "HEX1[1]" (rect 0 0 50 19)(font "Intel Clear" (font_size 8)))
+		(text "HEX1[1]" (rect 65 299 115 318)(font "Intel Clear" (font_size 8)))
+		(line (pt 136 304)(pt 120 304))
+	)
+	(port
+		(pt 136 320)
+		(output)
+		(text "HEX1[2]" (rect 0 0 50 19)(font "Intel Clear" (font_size 8)))
+		(text "HEX1[2]" (rect 65 315 115 334)(font "Intel Clear" (font_size 8)))
+		(line (pt 136 320)(pt 120 320))
+	)
+	(port
+		(pt 136 336)
+		(output)
+		(text "HEX1[3]" (rect 0 0 50 19)(font "Intel Clear" (font_size 8)))
+		(text "HEX1[3]" (rect 65 331 115 350)(font "Intel Clear" (font_size 8)))
+		(line (pt 136 336)(pt 120 336))
+	)
+	(port
+		(pt 136 352)
+		(output)
+		(text "HEX1[4]" (rect 0 0 50 19)(font "Intel Clear" (font_size 8)))
+		(text "HEX1[4]" (rect 65 347 115 366)(font "Intel Clear" (font_size 8)))
+		(line (pt 136 352)(pt 120 352))
+	)
+	(port
+		(pt 136 368)
+		(output)
+		(text "HEX1[5]" (rect 0 0 50 19)(font "Intel Clear" (font_size 8)))
+		(text "HEX1[5]" (rect 65 363 115 382)(font "Intel Clear" (font_size 8)))
+		(line (pt 136 368)(pt 120 368))
+	)
+	(port
+		(pt 136 384)
+		(output)
+		(text "HEX1[6]" (rect 0 0 50 19)(font "Intel Clear" (font_size 8)))
+		(text "HEX1[6]" (rect 65 379 115 398)(font "Intel Clear" (font_size 8)))
+		(line (pt 136 384)(pt 120 384))
+	)
+	(drawing
+		(rectangle (rect 16 16 120 400))
+	)
+)
