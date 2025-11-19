@@ -18,6 +18,7 @@ class SevenSegment: DE1 {
     private:
         unsigned int reg0_hexValue;  ///< Register value for HEX0-HEX3 displays
         unsigned int reg1_hexValue;  ///< Register value for HEX4-HEX5 displays
+        static const unsigned int SEGMENT_MAP[16]; ///< 7-seg patterns for 0-F
         
     public:
         /**
