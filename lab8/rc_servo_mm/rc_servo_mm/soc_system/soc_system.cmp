@@ -78,6 +78,7 @@
 			memory_mem_dm                         : out   std_logic_vector(3 downto 0);                     -- mem_dm
 			memory_oct_rzqin                      : in    std_logic                     := 'X';             -- oct_rzqin
 			pio_led_external_connection_export    : out   std_logic_vector(9 downto 0);                     -- export
+			pio_out_external_connection_export    : out   std_logic_vector(31 downto 0);                    -- export
 			reset_reset_n                         : in    std_logic                     := 'X'              -- reset_n
 		);
 	end component soc_system;

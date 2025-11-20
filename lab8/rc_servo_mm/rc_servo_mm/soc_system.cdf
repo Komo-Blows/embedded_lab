@@ -6,7 +6,7 @@ JedecChain;
 	P ActionCode(Ign)
 		Device PartName(SOCVHPS) MfrSpec(OpMask(0));
 	P ActionCode(Cfg)
-		Device PartName(5CSEMA5F31) Path("C:/Users/consi/Documents/2160/DE1-SoC_v.5.1.3_HWrevF.revG_SystemCD (1)/Demonstrations/SOC_FPGA/my_first_hps-fpga_base/") File("soc_system.sof") MfrSpec(OpMask(1));
+		Device PartName(5CSEMA5F31) Path("C:/Users/constanti.n/Documents/GitHub/embedded_lab/lab8/rc_servo_mm/rc_servo_mm/") File("soc_system.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

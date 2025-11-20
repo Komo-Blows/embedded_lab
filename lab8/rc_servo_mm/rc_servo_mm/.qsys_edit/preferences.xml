@@ -15,9 +15,9 @@
    <frequency preferredWidth="287" />
   </columns>
  </clocktable>
- <window width="1600" height="832" x="3039" y="179" />
+ <window width="1600" height="1154" x="915" y="73" />
  <library
-   expandedCategories="Library,Library/Interface Protocols,Library/Processors and Peripherals/Peripherals,Library/Interface Protocols/PCI Express,Library/Interface Protocols/PCI Express/QSYS Example Designs,Project,Library/Processors and Peripherals" />
+   expandedCategories="Library/Processors and Peripherals/Peripherals,Library/Processors and Peripherals,Library,Project" />
  <hdlexample language="VERILOG" />
  <generation block_symbol_file="0" />
 </preferences>
