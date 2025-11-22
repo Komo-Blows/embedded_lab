@@ -64,7 +64,7 @@ public:
         * Read a 4-byte value from the specified general-purpose I/O location.
         *
         * @param pBase         Base address returned by 'mmap'.
-        * @param offset        Offset where device is mapped.
+        * @param ofset        Offset where device is mapped.
         * @return              Value read.
         */
         int RegisterRead(unsigned int reg_offset)
