@@ -3,11 +3,7 @@
 
 /**
  * @class DE1
- * @brief Base class for interfacing with DE1-SoC FPGA devices
- * 
- * This class provides memory-mapped I/O access to the DE1-SoC FPGA
- * hardware devices through the Linux /dev/mem interface. It manages
- * the initialization and cleanup of memory mappings.
+ * @brief Base class for interfacing with DE1-SoC FPGA devices through memory-mapped I/O access via the Linux /dev/mem interface
  */
 class DE1 {
     private:
@@ -20,38 +16,24 @@ class DE1 {
         
     public:
         /**
-         * @brief Constructor - initializes memory-mapped I/O
-         * 
-         * Opens /dev/mem and maps FPGA physical addresses to virtual memory.
-         * This allows direct hardware access to FPGA peripherals.
+         * @brief Constructor that initializes memory-mapped I/O by opening /dev/mem and mapping FPGA physical addresses to virtual memory for direct hardware access
          */
         DE1();
         
         /**
-         * @brief Destructor - cleans up memory mappings
-         * 
-         * Unmaps the virtual memory region and closes the file descriptor.
-         * This releases hardware resources properly.
+         * @brief Destructor that cleans up memory mappings by unmapping the virtual memory region and closing the file descriptor
          */
         ~DE1();
         
         /**
-         * @brief Write a value to a hardware register
-         * 
-         * Writes a 32-bit value to the specified register offset in the
-         * FPGA's memory-mapped I/O space.
-         * 
+         * @brief Write a 32-bit value to the specified register offset in the FPGA's memory-mapped I/O space
          * @param offset Register offset from base address
          * @param value Value to write to the register
          */
         void RegisterWrite(unsigned int offset, int value);
         
         /**
-         * @brief Read a value from a hardware register
-         * 
-         * Reads a 32-bit value from the specified register offset in the
-         * FPGA's memory-mapped I/O space.
-         * 
+         * @brief Read a 32-bit value from the specified register offset in the FPGA's memory-mapped I/O space
          * @param offset Register offset from base address
          * @return Value read from the register
          */
