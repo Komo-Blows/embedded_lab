@@ -393,7 +393,11 @@ rc_servo angle (
 	.display0(HEX0),
 	.display1(HEX1),
 	.display2(HEX2),
-	.servo(GPIO_1[35])
+	.display3(HEX3),
+	.display4(HEX4),
+	.display5(HEX5),
+	.servo(GPIO_1[35]),
+	.clkout(GPIO_1[26])
 );
 
 endmodule

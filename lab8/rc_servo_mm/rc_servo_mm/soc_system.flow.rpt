@@ -1,5 +1,5 @@
 Flow report for soc_system
-Thu Nov 20 12:17:12 2025
+Mon Dec 01 11:51:42 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -40,15 +40,15 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Thu Nov 20 12:16:50 2025       ;
+; Flow Status                     ; Successful - Mon Dec 01 11:51:18 2025       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; soc_system                                  ;
 ; Top-level Entity Name           ; ghrd_top                                    ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSEMA5F31C6                                ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 2,522 / 32,070 ( 8 % )                      ;
-; Total registers                 ; 3727                                        ;
+; Logic utilization (in ALMs)     ; 2,525 / 32,070 ( 8 % )                      ;
+; Total registers                 ; 3711                                        ;
 ; Total pins                      ; 368 / 457 ( 81 % )                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 526,336 / 4,065,280 ( 13 % )                ;
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/20/2025 12:12:02 ;
+; Start date & time ; 12/01/2025 11:46:22 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; soc_system          ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------+--------------------------------------------------------------------------+---------------+--------------------------------+------------+
 ; Assignment Name                       ; Value                                                                    ; Default Value ; Entity Name                    ; Section Id ;
 +---------------------------------------+--------------------------------------------------------------------------+---------------+--------------------------------+------------+
-; COMPILER_SIGNATURE_ID                 ; 255977963419315.176365872017836                                          ; --            ; --                             ; --         ;
+; COMPILER_SIGNATURE_ID                 ; 255977963419315.176460758023416                                          ; --            ; --                             ; --         ;
 ; ECO_REGENERATE_REPORT                 ; On                                                                       ; Off           ; --                             ; --         ;
 ; HPS_ISW_FILE                          ; soc_system/synthesis/submodules/sequencer/alt_types.pre.h                ; --            ; soc_system_hps_0_hps_io_border ; --         ;
 ; HPS_ISW_FILE                          ; soc_system/synthesis/submodules/sequencer/emif.pre.xml                   ; --            ; soc_system_hps_0_hps_io_border ; --         ;
@@ -157,6 +157,11 @@ refer to the applicable agreement for further details.
 ; MISC_FILE                             ; const8u_bb.v                                                             ; --            ; --                             ; --         ;
 ; MISC_FILE                             ; const8u.inc                                                              ; --            ; --                             ; --         ;
 ; MISC_FILE                             ; const8u.cmp                                                              ; --            ; --                             ; --         ;
+; MISC_FILE                             ; const1.bsf                                                               ; --            ; --                             ; --         ;
+; MISC_FILE                             ; const1_inst.v                                                            ; --            ; --                             ; --         ;
+; MISC_FILE                             ; const1_bb.v                                                              ; --            ; --                             ; --         ;
+; MISC_FILE                             ; const1.inc                                                               ; --            ; --                             ; --         ;
+; MISC_FILE                             ; const1.cmp                                                               ; --            ; --                             ; --         ;
 ; PARTITION_COLOR                       ; -- (Not supported for targeted family)                                   ; --            ; ghrd_top                       ; Top        ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL   ; -- (Not supported for targeted family)                                   ; --            ; ghrd_top                       ; Top        ;
 ; PARTITION_NETLIST_TYPE                ; -- (Not supported for targeted family)                                   ; --            ; ghrd_top                       ; Top        ;
@@ -175,11 +180,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:29     ; 1.0                     ; 5293 MB             ; 00:00:43                           ;
-; Fitter               ; 00:02:12     ; 1.2                     ; 8610 MB             ; 00:17:14                           ;
+; Analysis & Synthesis ; 00:00:32     ; 1.0                     ; 5336 MB             ; 00:00:42                           ;
+; Fitter               ; 00:02:13     ; 1.2                     ; 8613 MB             ; 00:17:17                           ;
 ; Assembler            ; 00:00:07     ; 1.0                     ; 4947 MB             ; 00:00:07                           ;
-; Timing Analyzer      ; 00:00:21     ; 1.6                     ; 5847 MB             ; 00:00:31                           ;
-; Total                ; 00:03:09     ; --                      ; --                  ; 00:18:35                           ;
+; Timing Analyzer      ; 00:00:23     ; 1.6                     ; 5845 MB             ; 00:00:33                           ;
+; Total                ; 00:03:15     ; --                      ; --                  ; 00:18:39                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

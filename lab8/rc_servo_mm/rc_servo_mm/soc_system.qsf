@@ -951,4 +951,5 @@ set_global_assignment -name QIP_FILE rc500.qip
 set_global_assignment -name QIP_FILE rc.qip
 set_global_assignment -name QIP_FILE div8u.qip
 set_global_assignment -name QIP_FILE const8u.qip
+set_global_assignment -name QIP_FILE const1.qip
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
