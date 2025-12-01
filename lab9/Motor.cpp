@@ -47,8 +47,7 @@ Motor::~Motor() {
  */
 void Motor::Reset(void){
 	// TO DO: Write code to reset motor to 0.0 degrees
-
-
+	Move(0.0);
 }
 
 /**
@@ -57,11 +56,11 @@ void Motor::Reset(void){
 */
 bool Motor::IsReady(void)
 {
-	// TO DO: Write code below ...
+	// read ready section of register
+	uint32_t status = mmio ->RegisterRead(szPWM_Base[m_nMotorID] + REG_ADJ_STATUS);
 
-
-
-	return false; // change as needed
+	// return ready bit
+	return (status & 0x1) != 0;
 }
 
 /**
@@ -70,10 +69,7 @@ bool Motor::IsReady(void)
 float Motor::GetfAngle(void)
 {
 	// TO DO: Write code below ...
-
-
-
-	return 0.0; // change as needed
+    return motor_angle;
 }
 
 /**
@@ -98,6 +94,9 @@ void Motor::SetSpeed(int speed)
 
 	// compute the motor speed before before writing to the register
 	mmio->RegisterWrite((szPWM_Base[m_nMotorID] + REG_ADJ_SPEED), delayValue);
+
+	// write speed / delay value to class attribute
+	motor_speed = delayValue;
 }
 
 /**
@@ -122,6 +121,9 @@ uint32_t Motor::GetSpeed(void)
  */
 void Motor::Move(float fAngle) {
 	// TO DO: Write code below ...
+	// set the attribute value first because motorAngle is in degrees, but ideal fAngle should be in cycles
+	motor_angle = fAngle;
+	//
 	// convert motor ID to a negative or positive number
 	float angleConverstion_factor = 0;
 	if (m_nMotorID < 9) {
@@ -144,7 +146,4 @@ void Motor::Move(float fAngle) {
 
 	// set register value
 	mmio->RegisterWrite((szPWM_Base[m_nMotorID]+REG_HIGH_DUR), registerValue);
-
-	// set the attribute value
-	motor_angle = fAngle;
 }
