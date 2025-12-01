@@ -30,8 +30,7 @@ int main(int argc, char *argv[]){
     cout << "Press KEY0 to decrement angle, KEY1 to increment angle. Ctrl+C to exit." << endl;
 
     while (true) {
-        // Assume KEY0 is mapped to bit 0, KEY1 to bit 1 in the push button register
-        uint32_t key_val = m_map->RegisterRead(PUSH_BUTTON_BASE); // Replace PUSH_BUTTON_BASE with actual base address
+        uint32_t key_val = m_map->RegisterRead(0x00000050); // this is the push button base I think
 
         bool key0_pressed = key_val & 0x1;
         bool key1_pressed = key_val & 0x2;
