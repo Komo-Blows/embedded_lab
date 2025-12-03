@@ -33,10 +33,10 @@ SpiderLeg::~SpiderLeg() {
  * Reset the 3 joints on the Leg
  */
 void SpiderLeg::Reset(void) {
-	// TO DO: Write code below ...
-	
-	
-	
+	// Reset all three joints on the leg to 0 degrees
+	for(int i = 0; i < JOINT_NUM; i++) {
+		m_szMotor[i]->Reset();
+	}
 }
 
 /**
@@ -44,9 +44,7 @@ void SpiderLeg::Reset(void) {
  */
 void SpiderLeg::MoveJoint(JOINT_ID JointID, float fAngle){
 	// TO DO: Write code below ...
-	
-	
-
+	m_szMotor[JointID]->Move(fAngle);
 }
 
 /**
@@ -54,10 +52,12 @@ void SpiderLeg::MoveJoint(JOINT_ID JointID, float fAngle){
  */
 bool SpiderLeg::IsReady(void){
 	// TO DO: Write code below ...
-	
-	
-	
-	return false; // change as needed
+	for (int i=0; i<JOINT_NUM; i++){
+	    if (m_szMotor[i]->IsReady() == false) {
+			return false;
+		}
+	}
+	return true;
 }
 
 /**
@@ -66,10 +66,8 @@ bool SpiderLeg::IsReady(void){
 float SpiderLeg::GetfAngle(JOINT_ID JointID)
 {
 	// TO DO: Write code below ...
-	
-	
-	
-	return 0.0; // change as needed
+
+	return m_szMotor[JointID]->GetfAngle(); // change as needed
 }
 
 /**
@@ -78,9 +76,7 @@ float SpiderLeg::GetfAngle(JOINT_ID JointID)
 void SpiderLeg::SetSpeed(JOINT_ID JointID, int Speed)
 {
 	// TO DO: Write code below ...
-	
-	
-
+	m_szMotor[JointID]->SetSpeed(Speed);
 }
 
 /**
@@ -88,10 +84,5 @@ void SpiderLeg::SetSpeed(JOINT_ID JointID, int Speed)
  */
 uint32_t SpiderLeg::GetSpeed(JOINT_ID JointID)
 {
-	// TO DO: Write code below ...
-	
-	
-	
-	return 0; // change as needed
+	return m_szMotor[JointID]->GetSpeed();
 }
-
