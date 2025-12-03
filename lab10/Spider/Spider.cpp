@@ -156,7 +156,7 @@ void Spider::MoveTripod(TRIPOD_ID Tripod,SpiderLeg::JOINT_ID Joint,float AngleF,
 	}
 }
 
-void MoveForward(uint8_t Repeat_Num)
+void Spider::MoveForward(uint8_t Repeat_Num)
 {
 	for(int num=0; num<Repeat_Num; num++)
 	{
@@ -183,7 +183,7 @@ void MoveForward(uint8_t Repeat_Num)
 	}
 }
 
-void MoveBackward(uint8_t Repeat_Num)
+void Spider::MoveBackward(uint8_t Repeat_Num)
 {
 	for(int num=0; num<Repeat_Num; num++)
 	{
@@ -210,7 +210,7 @@ void MoveBackward(uint8_t Repeat_Num)
 	}
 }
 
-void RotateLeft()
+void Spider::RotateLeft()
 {
 	// lift all legs
 	MoveTripod(TRIPOD2, SpiderLeg::Knee, Knee_Up_Base, Knee_Up_Base, Knee_Up_Base);
@@ -233,7 +233,7 @@ void RotateLeft()
 	WaitReady();
 }
 
-void RotateRight()
+void Spider::RotateRight()
 {
 	// lift all legs
 	MoveTripod(TRIPOD2, SpiderLeg::Knee, Knee_Up_Base, Knee_Up_Base, Knee_Up_Base);

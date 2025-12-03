@@ -62,6 +62,9 @@ public:
 	void SetSpeed(int Speed);
 	void MoveForward(uint8_t Repeat_Num);
 	void MoveBackward(uint8_t Repeat_Num);
+	void RotateRight()
+	void RotateLeft()
+
 };
 
 #endif /* CSPIDER_H_ */
