@@ -9,9 +9,7 @@
  */
 
 #include "Motor.h"
-#include "RegisterMap.h"
 #include <math.h>
-#include <iostream>
 using namespace std;
 
 /*
@@ -90,12 +88,13 @@ void Motor::SetSpeed(int speed)
     }
 
 	// compute delay value using speed
-	int delayValue = (speed * 7) + 1000;
+	// Speed 0 -> delay 1700 (slowest), Speed 100 -> delay 1000 (fastest)
+	int delayValue = DELAY_MAX - ((speed * (DELAY_MAX - DELAY_MIN)) / SPEED_MAX);
 
-	// compute the motor speed before before writing to the register
+	// write delay value to register
 	mmio->RegisterWrite((szPWM_Base[m_nMotorID] + REG_ADJ_SPEED), delayValue);
 
-	// write speed / delay value to class attribute
+	// update class attribute
 	motor_speed = delayValue;
 }
 
@@ -104,11 +103,10 @@ void Motor::SetSpeed(int speed)
  */
 uint32_t Motor::GetSpeed(void)
 {
-	// TO DO: Write code below ...
-
-
-
-	return 0; // change as needed
+	// Convert current motor_speed (delay) back to user speed (0-100)
+	// Reverse the SetSpeed calculation: speed = (DELAY_MAX - motor_speed) * SPEED_MAX / (DELAY_MAX - DELAY_MIN)
+	uint32_t speed = ((DELAY_MAX - motor_speed) * SPEED_MAX) / (DELAY_MAX - DELAY_MIN);
+	return speed;
 }
 
 /**
@@ -120,30 +118,31 @@ uint32_t Motor::GetSpeed(void)
  *  Compute PWM duty cycle with your algorithm before writing to register
  */
 void Motor::Move(float fAngle) {
-	// TO DO: Write code below ...
-	// set the attribute value first because motorAngle is in degrees, but ideal fAngle should be in cycles
-	motor_angle = fAngle;
-	//
-	// convert motor ID to a negative or positive number
-	float angleConverstion_factor = 0;
+	// Handle the special case where angle = -0.0
+	if (fAngle == -0.0) {
+		fAngle = 0.0;
+	}
+	
+	// For right-side motors (ID 0-8), invert the angle
 	if (m_nMotorID < 9) {
-	    angleConverstion_factor--;
-	} else {
-	    angleConverstion_factor++;
+		fAngle = -fAngle;
 	}
 
-	// limit the angle
+	// Limit the angle to valid range
 	if (fAngle < DEGREE_MIN) {
-	    fAngle = DEGREE_MIN;
+		fAngle = DEGREE_MIN;
 	}
-
 	if (fAngle > DEGREE_MAX) {
-	    fAngle = DEGREE_MAX;
+		fAngle = DEGREE_MAX;
 	}
 
-	// compute register value
-	int registerValue = 25000 + (1250* (fAngle+90));
+	// Update the class attribute with the original angle (before inversion)
+	motor_angle = (m_nMotorID < 9) ? -fAngle : fAngle;
 
-	// set register value
-	mmio->RegisterWrite((szPWM_Base[m_nMotorID]+REG_HIGH_DUR), registerValue);
+	// Convert angle (-90 to +90) to PWM duty cycle (25000 to 125000 cycles)
+	// Formula: duty_cycle = PWM_MIN + ((angle + 90) / 180) * (PWM_MAX - PWM_MIN)
+	uint32_t duty_cycle = PWM_MIN + (uint32_t)(((fAngle + 90.0) / 180.0) * (PWM_MAX - PWM_MIN));
+
+	// Write duty cycle to register
+	mmio->RegisterWrite((szPWM_Base[m_nMotorID] + REG_HIGH_DUR), duty_cycle);
 }
