@@ -52,7 +52,7 @@ int main(int argc, char *argv[]){
         prev_key0 = key0_pressed;
         prev_key1 = key1_pressed;
 
-        usleep(10000); // Polling delay
+        usleep(1000); // Polling delay
     }
 
 	// detele dynamic objects

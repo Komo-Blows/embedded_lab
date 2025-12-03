@@ -15,7 +15,7 @@
    <frequency preferredWidth="287" />
   </columns>
  </clocktable>
- <window width="1600" height="1154" x="915" y="73" />
+ <window width="1600" height="1154" x="912" y="45" />
  <library
    expandedCategories="Library/Processors and Peripherals/Peripherals,Library/Processors and Peripherals,Library,Project" />
  <hdlexample language="VERILOG" />
