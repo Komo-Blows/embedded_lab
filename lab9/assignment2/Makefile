@@ -15,7 +15,7 @@ server: server.o
 client: client.o
 	$(CC) $(LDFLAGS) $^ -o $@
 
-$(TARGET): Main.o MMap.o LEDControl.o Motor.o
+$(TARGET): Main.o MMap.o LEDControl.o Motor.o SpiderLeg.o
 	$(CC) $(LDFLAGS)  $^ -o $@
 
 %.o : %.cpp
