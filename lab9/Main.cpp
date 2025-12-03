@@ -24,32 +24,34 @@ int main(int argc, char *argv[]){
     Motor *motor = new Motor(m_map, RF_ankle);
 
 	// TO DO: Write code to test your program below....
- float angle = 0.0;
+    float angle = 0.0;
     motor->Move(angle); // Ensure initial position
 
     cout << "Press KEY0 to decrement angle, KEY1 to increment angle. Ctrl+C to exit." << endl;
 
+    int prev_key0 = 0, prev_key1 = 0;
+
     while (true) {
-        // Assume KEY0 is mapped to bit 0, KEY1 to bit 1 in the push button register
-        uint32_t key_val = m_map->RegisterRead(PUSH_BUTTON_BASE); // Replace PUSH_BUTTON_BASE with actual base address
+        int key0_pressed = pio->ReadButton(0);
+        int key1_pressed = pio->ReadButton(1);
 
-        bool key0_pressed = key_val & 0x1;
-        bool key1_pressed = key_val & 0x2;
-
-        if (key0_pressed) {
+        // Only act on rising edge (button press)
+        if (key0_pressed && !prev_key0) {
             angle -= 15.0;
             if (angle < DEGREE_MIN) angle = DEGREE_MIN;
             motor->Move(angle);
             cout << "Angle: " << angle << endl;
-            usleep(300000); // Debounce delay
         }
-        if (key1_pressed) {
+        if (key1_pressed && !prev_key1) {
             angle += 15.0;
             if (angle > DEGREE_MAX) angle = DEGREE_MAX;
             motor->Move(angle);
             cout << "Angle: " << angle << endl;
-            usleep(300000); // Debounce delay
         }
+
+        prev_key0 = key0_pressed;
+        prev_key1 = key1_pressed;
+
         usleep(10000); // Polling delay
     }
 

@@ -105,6 +105,6 @@ int LEDControl::ReadAllSwitches()
  */
 int LEDControl::ReadButton(int buttonKey)
 {
-	int regValue = ~(m_map->RegisterRead(KEY_BASE));
+	int regValue = m_map->RegisterRead(KEY_BASE);
 	return (regValue >> buttonKey) & 0x1;
 }
