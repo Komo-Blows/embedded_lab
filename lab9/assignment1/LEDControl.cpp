@@ -4,11 +4,11 @@
  * @date   June, 2025
  * @brief  Process GPIO input and output for the DE1-SoC
  *
- * Contains a LEDControl class that opens GPIO ports through 
- * memory-mapping for reading switches and push buttons and 
+ * Contains a LEDControl class that opens GPIO ports through
+ * memory-mapping for reading switches and push buttons and
  * writing to LEDs
  */
- 
+
  // system libraries
 #include <iostream>
 #include "LEDControl.h"
@@ -87,7 +87,7 @@ int LEDControl::Read1Switch(int switchNum)
 /**
  * Reads the switch values into a decimal integer
  *
- * - Calls Read1Switch() to read all switches 
+ * - Calls Read1Switch() to read all switches
  * @param pBase		Base address returned by 'mmap'.
  * @return		Switches' value read
  */
