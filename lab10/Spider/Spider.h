@@ -62,8 +62,8 @@ public:
 	void SetSpeed(int Speed);
 	void MoveForward(uint8_t Repeat_Num);
 	void MoveBackward(uint8_t Repeat_Num);
-	void RotateRight()
-	void RotateLeft()
+	void RotateRight();
+	void RotateLeft();
 
 };
 

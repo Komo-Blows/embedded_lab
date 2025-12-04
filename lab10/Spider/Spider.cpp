@@ -72,6 +72,9 @@ bool Spider::WaitReady(){
 	bool bReady = false;
 	while (!bReady) 
 		bReady = IsReady();
+	int i = 0
+	printf("waiting for char c input > ")
+	while (getchar()!='c'){printf("\n... >")}
 	return bReady;
 }
 
@@ -212,22 +215,20 @@ void Spider::MoveBackward(uint8_t Repeat_Num)
 
 void Spider::RotateLeft()
 {
-	// lift all legs
-	MoveTripod(TRIPOD2, SpiderLeg::Knee, Knee_Up_Base, Knee_Up_Base, Knee_Up_Base);
-	MoveTripod(TRIPOD1, SpiderLeg::Knee, Knee_Up_Base, Knee_Up_Base, Knee_Up_Base);
-	WaitReady();
-	// reset to neutral angles
-	MoveTripod(TRIPOD2, SpiderLeg::Hip, HipF_Base, HipM_Base, HipB_Base);
-	MoveTripod(TRIPOD1, SpiderLeg::Hip, HipF_Base, HipM_Base, HipB_Base);
-	WaitReady();
+	// lift tripod 1, drop tripod 2
 	MoveTripod(TRIPOD2, SpiderLeg::Knee, Knee_Down_Base, Knee_Down_Base, Knee_Down_Base); // drop tripod 2
+	MoveTripod(TRIPOD1, SpiderLeg::Knee, Knee_Up_Base, Knee_Up_Base, Knee_Up_Base); // lift tripod 1
 	WaitReady();
-	MoveTripod(TRIPOD2, SpiderLeg::Hip, HipF_Base + 20, HipM_Base - 20, HipB_Base - 20); // tripod 2 rotate right
+	// move tripod 1 to leftmost position
+	MoveTripod(TRIPOD1, SpiderLeg::Hip, HipF_Base + 20, HipM_Base - 20, HipB_Base - 20); // tripod 2 rotate right
 	WaitReady();
-	MoveTripod(TRIPOD2, SpiderLeg::Knee, Knee_Up_Base, Knee_Up_Base, Knee_Up_Base); // lift tripod 2
-	MoveTripod(TRIPOD2, SpiderLeg::Hip, HipF_Base, HipM_Base, HipB_Base); // tripod 2 to neutral angle
+	// drop tripod 1, lift tripod 2
+	MoveTripod(TRIPOD1, SpiderLeg::Knee, Knee_Down_Base, Knee_Down_Base, Knee_Down_Base); // drop tripod 2
+	MoveTripod(TRIPOD2, SpiderLeg::Knee, Knee_Up_Base, Knee_Up_Base, Knee_Up_Base); // lift tripod 1
 	WaitReady();
-	// drop all legs
+	// rotate tripod 1 to the right (rotates spider left)
+	MoveTripod(TRIPOD1, SpiderLeg::Hip, HipF_Base - 20, HipM_Base + 20, HipB_Base + 20); // tripod 2 rotate right
+	WaitReady();
 	MoveTripod(TRIPOD2, SpiderLeg::Knee, Knee_Down_Base, Knee_Down_Base, Knee_Down_Base); // drop tripod 2
 	MoveTripod(TRIPOD1, SpiderLeg::Knee, Knee_Down_Base, Knee_Down_Base, Knee_Down_Base); // drop tripod 1
 	WaitReady();
@@ -235,23 +236,4 @@ void Spider::RotateLeft()
 
 void Spider::RotateRight()
 {
-	// lift all legs
-	MoveTripod(TRIPOD2, SpiderLeg::Knee, Knee_Up_Base, Knee_Up_Base, Knee_Up_Base);
-	MoveTripod(TRIPOD1, SpiderLeg::Knee, Knee_Up_Base, Knee_Up_Base, Knee_Up_Base);
-	WaitReady();
-	// reset to neutral angles
-	MoveTripod(TRIPOD2, SpiderLeg::Hip, HipF_Base, HipM_Base, HipB_Base);
-	MoveTripod(TRIPOD1, SpiderLeg::Hip, HipF_Base, HipM_Base, HipB_Base);
-	WaitReady();
-	MoveTripod(TRIPOD2, SpiderLeg::Knee, Knee_Down_Base, Knee_Down_Base, Knee_Down_Base); // drop tripod 2
-	WaitReady();
-	MoveTripod(TRIPOD2, SpiderLeg::Hip, HipF_Base - 20, HipM_Base + 20, HipB_Base + 20); // tripod 2 rotate left
-	WaitReady();
-	MoveTripod(TRIPOD2, SpiderLeg::Knee, Knee_Up_Base, Knee_Up_Base, Knee_Up_Base); // lift tripod 2
-	MoveTripod(TRIPOD2, SpiderLeg::Hip, HipF_Base, HipM_Base, HipB_Base); // tripod 2 to neutral angle
-	WaitReady();
-	// drop all legs
-	MoveTripod(TRIPOD2, SpiderLeg::Knee, Knee_Down_Base, Knee_Down_Base, Knee_Down_Base); // drop tripod 2
-	MoveTripod(TRIPOD1, SpiderLeg::Knee, Knee_Down_Base, Knee_Down_Base, Knee_Down_Base); // drop tripod 1
-	WaitReady();
 }

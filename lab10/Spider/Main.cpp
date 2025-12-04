@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
 				break;
 			case 'a':
 				cout << "Rotate Left..." << endl;
-				spider->RotateLeft(1);
+				spider->RotateLeft();
 				break;
 			case 's':
 				cout << "Move Backward..." << endl;
@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
 				break;
 			case 'd':
 				cout << "Rotate Right..." << endl;
-				spider->RotateRight(1);
+				spider->RotateRight();
 				break;
 			case 'q':
 				cout << "STOP Spider" << endl;
