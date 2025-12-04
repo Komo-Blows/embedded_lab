@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 	spider->Standup();
 
 	cout << "Waiting for Command..." << endl;
-	cout << "t (reset), p (speed), q (stop), w (foward), a (left), s (back), d (right):" << endl;
+	cout << "t (reset), p (speed), q (stop), w (foward), a (left), s (back), d (right) or z (square):" << endl;
 	bool done = false;
 	while (!done)
 	{
@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
 				break;
 			case 'a':
 				cout << "Rotate Left..." << endl;
-				spider->RotateLeft();
+				spider->RotateLeft(1);
 				break;
 			case 's':
 				cout << "Move Backward..." << endl;
@@ -65,12 +65,16 @@ int main(int argc, char *argv[])
 				break;
 			case 'd':
 				cout << "Rotate Right..." << endl;
-				spider->RotateRight();
+				spider->RotateRight(1);
 				break;
 			case 'q':
 				cout << "STOP Spider" << endl;
 				done = true;
-				break;			
+				break;		
+			case 'z':
+				spider->MoveSquare();
+				done = true;
+				break;		
 			default:
 				cout << "IDLE or UNKNOWN COMMAND" << endl;
 				break;
