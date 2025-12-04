@@ -220,14 +220,14 @@ void Spider::RotateLeft()
 	MoveTripod(TRIPOD1, SpiderLeg::Knee, Knee_Up_Base, Knee_Up_Base, Knee_Up_Base); // lift tripod 1
 	WaitReady();
 	// move tripod 1 to leftmost position
-	MoveTripod(TRIPOD1, SpiderLeg::Hip, HipF_Base + 20, HipM_Base - 20, HipB_Base - 20); // tripod 2 rotate right
+	MoveTripod(TRIPOD1, SpiderLeg::Hip, HipF_Base + 20, HipM_Base - 20, HipB_Base + 20); // tripod 2 rotate right
 	WaitReady();
 	// drop tripod 1, lift tripod 2
 	MoveTripod(TRIPOD1, SpiderLeg::Knee, Knee_Down_Base, Knee_Down_Base, Knee_Down_Base); // drop tripod 2
 	MoveTripod(TRIPOD2, SpiderLeg::Knee, Knee_Up_Base, Knee_Up_Base, Knee_Up_Base); // lift tripod 1
 	WaitReady();
 	// rotate tripod 1 to the right (rotates spider left)
-	MoveTripod(TRIPOD1, SpiderLeg::Hip, HipF_Base - 20, HipM_Base + 20, HipB_Base + 20); // tripod 2 rotate right
+	MoveTripod(TRIPOD1, SpiderLeg::Hip, HipF_Base - 20, HipM_Base + 20, HipB_Base - 20); // tripod 2 rotate right
 	WaitReady();
 	MoveTripod(TRIPOD2, SpiderLeg::Knee, Knee_Down_Base, Knee_Down_Base, Knee_Down_Base); // drop tripod 2
 	MoveTripod(TRIPOD1, SpiderLeg::Knee, Knee_Down_Base, Knee_Down_Base, Knee_Down_Base); // drop tripod 1
