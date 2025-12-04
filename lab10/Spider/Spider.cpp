@@ -73,7 +73,7 @@ bool Spider::WaitReady(){
 	while (!bReady) 
 		bReady = IsReady();
 	int i = 0
-	printf("waiting for char c input > ")
+	printf("waiting for char c input > ");
 	while (getchar()!='c'){printf("\n... >")}
 	return bReady;
 }
